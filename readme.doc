@@ -1,78 +1,78 @@
-	fontx2bdf -- $fontx2->bdf$B%U%)%s%H%U%!%$%kJQ49%U%#%k%?(B
+	fontx2bdf -- $fontx2->bdfフォントファイル変換フィルタ
 		  Copyright (C) 1995 by Dai Ishijima
 
-$B!{(B $B%$%s%9%H!<%kJ}K!(B
+○ インストール方法
 
-$B$^$:!"%Q%C%1!<%8$rE,Ev$J%G%#%l%/%H%j$K(B tar $B$GE83+$7$^$9!#(B
+まず、パッケージを適当なディレクトリに tar で展開します。
 
-    $BA`:nNc(B
+    操作例
 	% mkdir fontx2bdf
 	% cd fontx2bdf
 	% tar xzvf ../fontx2bdf.tgz
 
-$B<!$K%3%s%Q%$%k$7$F!"%$%s%9%H!<%k$7$^$9!#$b$7!"%$%s%9%H!<%k@h$J$I$rJQ99(B
-$B$7$?$$$H$-$d(B FreeBSD$B0J30$GMxMQ$7$?$$$H$-$O!"(Bmakefile $B$rE,@Z$KJQ99$7$F(B
-$B$/$@$5$$!#(B
+次にコンパイルして、インストールします。もし、インストール先などを変更
+したいときや FreeBSD以外で利用したいときは、makefile を適切に変更して
+ください。
 
 	% make
 	% make install
 
-$B$3$l$G%$%s%9%H!<%k$G$-$^$7$?!#$b$7!"(Bjgroff $B$J$I$,%$%s%9%H!<%k$5$l$F$$(B
-$B$F!"F|K\8l$N%*%s%i%$%s%^%K%e%"%k$,;2>H$G$-$k$J$i!"(B
+これでインストールできました。もし、jgroff などがインストールされてい
+て、日本語のオンラインマニュアルが参照できるなら、
 
 	% make install.man
 
-$B$G%^%K%e%"%k$b%$%s%9%H!<%k$7$F$/$@$5$$!#(B
+でマニュアルもインストールしてください。
 
 
-$B!{(B $B;H$$J}(B
+○ 使い方
 
-$B$^$:!"JQ49$9$k(B$fontx2$B%U%)%s%H$rMQ0U$7$F$/$@$5$$!#MQ0U$,$G$-$?$i!"(B
+まず、変換する$fontx2フォントを用意してください。用意ができたら、
 
-	% fontx2bdf < $BJQ49$9$k%U%)%s%H(B | bdftopcf | compress > $B$J$s$H$+(B.pcf.Z
+	% fontx2bdf < 変換するフォント | bdftopcf | compress > なんとか.pcf.Z
 
-$B$H$7$FJQ49$7$^$9!#$"$H$OJQ49$5$l$?%U%)%s%H$r%$%s%9%H!<%k$9$k$@$1$G$9!#(B
+として変換します。あとは変換されたフォントをインストールするだけです。
 
 
-$B!{(B $B%$%s%9%H!<%kNc(B
+○ インストール例
 
 	% fontx2bdf < jpnzn16x.fnt | bdftopcf |
 	  compress > /usr/local/lib/fonts/jpnzn16x.pcf.Z
-	  ($BD9$$$N$G@^$jJV$7$F$$$^$9(B)
+	  (長いので折り返しています)
 	% fontx2bdf < jpnhn16x.fnt | bdftopcf |
 	  compress > /usr/local/lib/fonts/jpnhn16x.pcf.Z
-	  ($BD9$$$N$G@^$jJV$7$F$$$^$9(B)
+	  (長いので折り返しています)
 	% mkfontdir /usr/local/lib/fonts
 	% vi /usr/local/lib/fonts/fonts.alias
 
 
-$B!{(B $BF0:n4D6-(B
+○ 動作環境
 
-fontx2bdf $B$O(B 98$B8_495!$*$h$S(BAT$B8_495!>e$N(B FreeBSD $B$GF0:n$7$^$9!#$^$?!"(B
-MS-DOS$B>e$G$b%3%s%Q%$%k(B/$BF0:n2DG=$G$9!#(B
+fontx2bdf は 98互換機およびAT互換機上の FreeBSD で動作します。また、
+MS-DOS上でもコンパイル/動作可能です。
 
 
-$B!{(B $B;2>H(B
+○ 参照
 
 X(1), bdftopcf(1), compress(1), mkfontdir(1), xset(1),
-$fontx2.lzh $B$K4^$^$l$k(B manual.doc,
-$B$*$h$S!"JQ49$9$k(B$fontx2$B7A<0%U%)%s%H$KIUB0$N%I%-%e%a%s%H(B
+$fontx2.lzh に含まれる manual.doc,
+および、変換する$fontx2形式フォントに付属のドキュメント
 
 
-$B!{(B $B$*$3$H$o$j(B
+○ おことわり
 
-$B!&:FG[I[$dFs<!MxMQ$,6X;_$5$l$F$$$k%U%)%s%H$r!"$3$N%=%U%H%&%'%"$GJQ49$7(B
-  $B$J$$$G$/$@$5$$!#(B
-$B!&$3$N%=%U%H%&%'%"$O%U%j!<%=%U%H%&%'%"$G$9!#(BPDS$B$G$O$"$j$^$;$s!#$3$N%=(B
-  $B%U%H%&%'%"$NCx:n8"$O!":n<T$G$"$k(B $B$$$7$8$^!y$@$$(B $B$,J]M-$7$F$$$^$9!#(B
-$B!&$3$N%=%U%H%&%'%"$N;HMQ$K:]$7$F$NB;32!"$"$k$$$O;HMQ$G$-$J$$$3$H$K$h$k(B
-  $BB;32$K$D$$$F!":n<T$O0l@Z@UG$$rIi$$$^$;$s!#(B
-$B!&$3$N%=%U%H%&%'%"$r:n<T$N5v2D$J$/1DMx$rL\E*$H$7$FBh;0<T$XG[I[!&HNGd$9(B
-  $B$k$3$H$O$G$-$^$;$s!#(B
-$B!&$3$N%=%U%H%&%'%"$r2~JQ$7$?$b$N$rG[I[$7$J$$$G$/$@$5$$!#$?$@$7!"2~JQ$7(B
-  $B$?$b$N$X$N:9J,$NG[I[$O$+$^$$$^$;$s!#(B
-$B!&$=$NB>!"$3$N%=%U%H%&%'%"$N:n<T$*$h$SJQ4985%U%)%s%H$NCx:n<T$NCx:n8"$r(B
-  $B?/32$9$k9T0Y$r6X;_$7$^$9!#(B
-$B!&$3$N%=%U%H%&%'%"$r:FG[I[$9$k>l9g$O!"%Q%C%1!<%8$K4^$^$l$k$9$Y$F$N%U%!(B
-  $B%$%k$rG[I[$7$F$/$@$5$$!#%P%$%J%j7A<0$N$_$NG[I[$O@dBP$K9T$o$J$$$G$/$@(B
-  $B$5$$!#$J$*!":FG[I[$K$"$?$C$F$N%"!<%+%$%V%U%!%$%k$N7A<0$OLd$$$^$;$s!#(B
+・再配布や二次利用が禁止されているフォントを、このソフトウェアで変換し
+  ないでください。
+・このソフトウェアはフリーソフトウェアです。PDSではありません。このソ
+  フトウェアの著作権は、作者である いしじま☆だい が保有しています。
+・このソフトウェアの使用に際しての損害、あるいは使用できないことによる
+  損害について、作者は一切責任を負いません。
+・このソフトウェアを作者の許可なく営利を目的として第三者へ配布・販売す
+  ることはできません。
+・このソフトウェアを改変したものを配布しないでください。ただし、改変し
+  たものへの差分の配布はかまいません。
+・その他、このソフトウェアの作者および変換元フォントの著作者の著作権を
+  侵害する行為を禁止します。
+・このソフトウェアを再配布する場合は、パッケージに含まれるすべてのファ
+  イルを配布してください。バイナリ形式のみの配布は絶対に行わないでくだ
+  さい。なお、再配布にあたってのアーカイブファイルの形式は問いません。
