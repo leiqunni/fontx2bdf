@@ -1,0 +1,32 @@
+.TH FONTX2BDF 1 "February 11, 1996" "" "fontx2bdf Users Manual"
+
+.SH 名称
+fontx2bdf \- $fontx2形式フォントをbdf形式に変換する
+
+.SH 形式
+.B fontx2bdf
+
+.SH 解説
+.B fontx2bdf
+は標準入力から
+.I DOS/V $fontx2
+形式フォントファイルを
+読み込み、X-Windowの
+.I bdf
+形式に変換して標準出力に出力します。
+.I $fontx2 DBCSフォント
+、
+.I SBCSフォント
+の両フォント形式に対応しています。
+
+.SH バグ
+出力の先頭部の情報は非常にいい加減です。
+.br
+不適切な部分があれば、エディタを使って修正してください。
+
+.SH 参考
+X(1),
+mkfontdir(1),
+bdftopcf(1),
+manual.doc
+($fontx.sys, $fonte.sys: DOS/V互換 font driver v 2.0のドキュメント)
